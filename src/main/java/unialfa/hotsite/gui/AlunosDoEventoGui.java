@@ -25,26 +25,41 @@ public class AlunosDoEventoGui extends JFrame {
         setVisible(true);
     }
 
+    // Método responsável por montar o painel principal da interface que exibe os alunos do evento
+    // Retorna um JScrollPane contendo a tabela com os dados dos alunos
     private JScrollPane montarPainelPrincipal() {
         JTable tabelaAlunos = new JTable();
+
+        // Impede que o usuário edite diretamente os dados na tabela
         tabelaAlunos.setDefaultEditor(Object.class, null);
+
+        // Impede que o usuário altere a ordem das colunas com o mouse
         tabelaAlunos.getTableHeader().setReorderingAllowed(false);
 
+        // Define o modelo da tabela com os dados dos alunos carregados do banco
         tabelaAlunos.setModel(carregarAlunos());
 
+        // Retorna a tabela dentro de um painel com barra de rolagem
         return new JScrollPane(tabelaAlunos);
     }
 
+    // Método responsável por carregar os alunos inscritos no evento selecionado
+// Retorna um DefaultTableModel preenchido com os dados dos alunos
     private DefaultTableModel carregarAlunos() {
+        // Obtém a lista de alunos inscritos no evento a partir do DAO
         List<Aluno> alunos = inscricaoDao.listarAlunosPorEvento(eventoId);
 
+        // Cria um novo modelo de tabela
         var model = new DefaultTableModel();
+
+        // Define as colunas que a tabela deve exibir
         model.addColumn("ID");
         model.addColumn("Nome");
         model.addColumn("Email");
         model.addColumn("Curso");
         model.addColumn("RA");
 
+        // Preenche o modelo com os dados de cada aluno da lista
         alunos.forEach(aluno -> {
             model.addRow(new Object[]{
                     aluno.getId(),
@@ -55,6 +70,7 @@ public class AlunosDoEventoGui extends JFrame {
             });
         });
 
+        // Retorna o modelo completo para ser usado pela tabela
         return model;
     }
 }

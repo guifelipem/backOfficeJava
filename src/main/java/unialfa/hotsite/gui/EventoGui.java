@@ -55,7 +55,7 @@ public class EventoGui extends JFrame implements GuiUtil {
 
         JLabel jlDescricao = new JLabel("Descrição:");
         taDescricao = new JTextArea(3, 30);
-        taDescricao.setLineWrap(true); // quebra automatica de linha do textArea
+        taDescricao.setLineWrap(true); // quebra automática de linha do textArea
         taDescricao.setWrapStyleWord(true); // melhora a quebra de linha, quebrando apenas entre palavras
         JScrollPane scrollDescricao = new JScrollPane(taDescricao); // envolve a textArea com um componente de rolagem
 
@@ -208,7 +208,7 @@ public class EventoGui extends JFrame implements GuiUtil {
         // Se houver erro, a função retorna e o salvamento é cancelado
         if (!validarCamposEvento()) return;
 
-        // Cria um novo objeto Evento e preenche com os dados informados
+        // Cria um objeto Evento e preenche com os dados informados
         var evento = new Evento();
 
         evento.setNome(tfNome.getText());
@@ -421,7 +421,7 @@ public class EventoGui extends JFrame implements GuiUtil {
 
 
     // Método que chama a versão sem parâmetros para limpar os campos do formulário
-// É usado quando o botão "Limpar" é clicado
+    // É usado quando o botão "Limpar" é clicado
     private void limparCampos(ActionEvent actionEvent) {
         limparCampos();
     }
