@@ -12,8 +12,6 @@ public class AlunosDoEventoGui extends JFrame {
     private final InscricaoDao inscricaoDao = new InscricaoDao();
     private final int eventoId;
 
-    private JTable tabelaAlunos;
-
     public AlunosDoEventoGui(int eventoId) {
         this.eventoId = eventoId;
 
@@ -28,7 +26,7 @@ public class AlunosDoEventoGui extends JFrame {
     }
 
     private JScrollPane montarPainelPrincipal() {
-        tabelaAlunos = new JTable();
+        JTable tabelaAlunos = new JTable();
         tabelaAlunos.setDefaultEditor(Object.class, null);
         tabelaAlunos.getTableHeader().setReorderingAllowed(false);
 
