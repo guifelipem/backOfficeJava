@@ -4,6 +4,7 @@ import unialfa.hotsite.dao.CoordenadorDao;
 import unialfa.hotsite.model.Coordenador;
 import unialfa.hotsite.model.Evento;
 import unialfa.hotsite.model.Palestrante;
+import unialfa.hotsite.service.CoordenadorService;
 import unialfa.hotsite.service.EventoService;
 import unialfa.hotsite.service.PalestranteService;
 
@@ -18,7 +19,7 @@ import java.time.LocalTime;
 public class EventoGui extends JFrame implements GuiUtil {
 
     private final EventoService eventoService;
-    private final CoordenadorDao coordenadorDao = new CoordenadorDao();
+    private final CoordenadorService coordenadorService = new CoordenadorService();
     private final PalestranteService palestranteService = new PalestranteService();
 
     private JTextField tfNome, tfData, tfHoraInicio, tfHoraFim;
@@ -406,8 +407,8 @@ public class EventoGui extends JFrame implements GuiUtil {
         // Remove todos os itens existentes do ComboBox para evitar duplicações
         cbCoordenador.removeAllItems();
 
-        // Busca a lista de coordenadores no banco e adiciona cada um ao ComboBox
-        coordenadorDao.listar().forEach(cbCoordenador::addItem);
+        // Chama a Service para fazer a busca a lista de coordenadores no banco e adiciona cada um ao ComboBox
+        coordenadorService.listar().forEach(cbCoordenador::addItem);
     }
 
     // Método responsável por carregar os palestrantes no ComboBox
