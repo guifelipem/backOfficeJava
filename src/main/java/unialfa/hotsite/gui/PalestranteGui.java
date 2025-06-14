@@ -13,23 +13,9 @@ public class PalestranteGui extends JFrame implements GuiUtil {
 
     private final PalestranteService palestranteService;
 
-    private JLabel jlNome;
-    private JTextField tfNome;
+    private JTextField tfNome, tfFotoUrl, tfTema;
 
-    private JLabel jlMiniCurriculo;
     private JTextArea taMiniCurriculo;
-
-    private JLabel jlFotoUrl;
-    private JTextField tfFotoUrl;
-
-    private JLabel jlTema;
-    private JTextField tfTema;
-
-    private JButton btLimpar;
-    private JButton btSalvar;
-    private JButton btAtualizar;
-    private JButton btExcluir;
-    private JButton btListar;
 
     private JTable tabela;
 
@@ -49,34 +35,34 @@ public class PalestranteGui extends JFrame implements GuiUtil {
         var jPanel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc;
 
-        jlNome = new JLabel("Nome:");
+        JLabel jlNome = new JLabel("Nome:");
         tfNome = new JTextField(30);
 
-        jlMiniCurriculo = new JLabel("Mini Currículo:");
+        JLabel jlMiniCurriculo = new JLabel("Mini Currículo:");
         taMiniCurriculo = new JTextArea(5, 30);
         taMiniCurriculo.setLineWrap(true);
         taMiniCurriculo.setWrapStyleWord(true);
         JScrollPane scrollMiniCurriculo = new JScrollPane(taMiniCurriculo);
 
-        jlFotoUrl = new JLabel("Foto URL:");
+        JLabel jlFotoUrl = new JLabel("Foto URL:");
         tfFotoUrl = new JTextField(30);
 
-        jlTema = new JLabel("Tema:");
+        JLabel jlTema = new JLabel("Tema:");
         tfTema = new JTextField(30);
 
-        btSalvar = new JButton("Salvar");
+        JButton btSalvar = new JButton("Salvar");
         btSalvar.addActionListener(this::salvar);
 
-        btAtualizar = new JButton("Atualizar");
+        JButton btAtualizar = new JButton("Atualizar");
         btAtualizar.addActionListener(this::atualizar);
 
-        btExcluir = new JButton("Excluir");
+        JButton btExcluir = new JButton("Excluir");
         btExcluir.addActionListener(this::excluir);
 
-        btListar = new JButton("Listar");
+        JButton btListar = new JButton("Listar");
         btListar.addActionListener(this::listar);
 
-        btLimpar = new JButton("Limpar Campos");
+        JButton btLimpar = new JButton("Limpar Campos");
         btLimpar.addActionListener(this::limparCampos);
 
         // Linha 1: Nome
